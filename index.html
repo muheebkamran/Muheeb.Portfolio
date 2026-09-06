@@ -16,6 +16,57 @@
 
   <div class="ambient-glow" id="ambientGlow"></div>
 
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title">Profile Navigation</span>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+    </div>
+
+    <div class="drawer-section">
+      <span class="drawer-label">Direct Line</span>
+      <a href="https://wa.me/923367648245" target="_blank" rel="noopener" class="drawer-contact-btn">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+
+    <div class="drawer-section">
+      <span class="drawer-label">Explore</span>
+      <nav class="drawer-nav">
+        <a href="#works" class="drawer-nav-link">Code Repositories</a>
+        <a href="#process" class="drawer-nav-link">Technical Process</a>
+        <a href="https://github.com/muheebkamran" target="_blank" rel="noopener" class="drawer-nav-link">GitHub Profile ↗</a>
+      </nav>
+    </div>
+
+    <div class="drawer-section">
+      <span class="drawer-label">Athletics & Passions</span>
+      <ul class="hobby-list">
+        <li class="hobby-item">
+          <i class="fa-solid fa-mitten"></i>
+          <div>
+            <strong>Boxer & MMA Fighter</strong>
+            <p>Dedicated martial artist training in striking and mixed martial arts.</p>
+          </div>
+        </li>
+        <li class="hobby-item">
+          <i class="fa-solid fa-person-running"></i>
+          <div>
+            <strong>Athletic Discipline</strong>
+            <p>Committed to functional strength, agility, and rigorous conditioning.</p>
+          </div>
+        </li>
+        <li class="hobby-item">
+          <i class="fa-solid fa-spray-can-sparkles"></i>
+          <div>
+            <strong>Fragrance Reviewer</strong>
+            <p>Curating and reviewing fragrances over on Instagram <a href="https://www.instagram.com/muheebreviews/" target="_blank" rel="noopener">@muheebreviews</a>.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
   <header class="site-header">
     <a href="#" class="brand-signature">Muheeb Rehman</a>
     
@@ -28,9 +79,10 @@
       <a href="https://wa.me/923367648245" target="_blank" rel="noopener" class="direct-ping-btn">
         <i class="fa-brands fa-whatsapp"></i> 0336 7648245
       </a>
-      <button class="nav-trigger" aria-label="Menu">
-        <span class="trigger-line"></span>
-        <span class="trigger-line"></span>
+      <button class="nav-trigger" id="navTrigger" aria-label="Open menu">
+        <span class="trigger-dot"></span>
+        <span class="trigger-dot"></span>
+        <span class="trigger-dot"></span>
       </button>
     </div>
   </header>
@@ -81,10 +133,10 @@
     <section class="tech-strip">
       <div class="tech-track">
         <span class="tech-item"><i class="fa-brands fa-python"></i> Python</span>
+        <span class="tech-item"><i class="fa-brands fa-html5"></i> HTML5 & CSS3</span>
+        <span class="tech-item"><i class="fa-brands fa-js"></i> JavaScript</span>
         <span class="tech-item"><i class="fa-solid fa-c"></i> C Programming</span>
-        <span class="tech-item"><i class="fa-solid fa-microchip"></i> Algorithms</span>
-        <span class="tech-item"><i class="fa-brands fa-git-alt"></i> Git Version Control</span>
-        <span class="tech-item"><i class="fa-solid fa-terminal"></i> CLI Systems</span>
+        <span class="tech-item"><i class="fa-brands fa-git-alt"></i> Git</span>
       </div>
     </section>
 
@@ -128,7 +180,7 @@
       </div>
     </section>
 
-    <section class="process-section">
+    <section class="process-section" id="process">
       <div class="section-badge-center">/ Technical Workflow</div>
       <h2 class="section-title-large">Here's how it works</h2>
 
@@ -140,19 +192,19 @@
         <div class="p-card card-step-1">
           <div class="step-num">01</div>
           <h3 class="step-label">Discover</h3>
-          <p class="step-desc">Deconstructing problem statements, outlining mathematical constraints, and identifying optimal data structures.</p>
+          <p class="step-desc">Deconstructing problem statements, analyzing data representations, and mapping variable requirements.</p>
         </div>
 
         <div class="p-card card-step-2">
           <div class="step-num">02</div>
           <h3 class="step-label">Design</h3>
-          <p class="step-desc">Drafting algorithm logic, clean control flows, functional schemas, and low-complexity procedures.</p>
+          <p class="step-desc">Drafting procedural logic, structured layout wireframes, and validating mutability constraints.</p>
         </div>
 
         <div class="p-card card-step-3">
           <div class="step-num">03</div>
           <h3 class="step-label">Deliver</h3>
-          <p class="step-desc">Implementing tested, DRY code in Python and C with modular separation and explicit error handling.</p>
+          <p class="step-desc">Implementing tested, DRY code in Python, C, and Front-End stacks with modular clarity.</p>
         </div>
       </div>
     </section>
@@ -168,21 +220,25 @@
             <div class="code-terminal-preview">
               <div class="term-header">
                 <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-                <span class="term-title">python_programs.py</span>
+                <span class="term-title">arrays_and_tuples.py</span>
               </div>
-              <pre class="term-body"><code>def solve_problem(dataset):
-    # Automated processing & logic
-    transformed = [x.strip().lower() for x in dataset]
-    return {item: transformed.count(item) for item in set(transformed)}
+              <pre class="term-body"><code># Mutability vs Immutability Exploration
+mutable_sequence = [10, 20, 30]
+mutable_sequence.append(40)  # Arrays / Lists can mutate
 
-print("Execution: Optimal")</code></pre>
+immutable_tuple = (10, 20, "fixed_state")
+# immutable_tuple[0] = 99 -> Raises TypeError
+
+print("List mutated:", mutable_sequence)
+print("Tuple preserved:", immutable_tuple)</code></pre>
             </div>
           </a>
           <div class="work-details">
             <span class="work-name">Python Programs</span>
             <div class="work-pills">
-              <span class="wpill">Python</span>
-              <span class="wpill">Logic Scripts</span>
+              <span class="wpill">Arrays</span>
+              <span class="wpill">Mutability</span>
+              <span class="wpill">Tuples</span>
             </div>
           </div>
         </article>
@@ -192,22 +248,26 @@ print("Execution: Optimal")</code></pre>
             <div class="code-terminal-preview">
               <div class="term-header">
                 <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-                <span class="term-title">smit_coursework.py</span>
+                <span class="term-title">frontend_module.js</span>
               </div>
-              <pre class="term-body"><code># SMIT Development & Foundations
-class SystemModule:
-    def __init__(self, name, status):
-        self.name = name
-        self.status = "Deployed"
-
-module = SystemModule("Core", "Active")</code></pre>
+              <pre class="term-body"><code>// SMIT Front-End Web Development
+const renderUI = (data) => {
+  const container = document.getElementById("root");
+  container.innerHTML = `
+    &lt;div class="card"&gt;
+      &lt;h3&gt;${data.title}&lt;/h3&gt;
+      &lt;p&gt;Built with semantic HTML & modern CSS&lt;/p&gt;
+    &lt;/div&gt;
+  `;
+};</code></pre>
             </div>
           </a>
           <div class="work-details">
             <span class="work-name">SMIT Programs</span>
             <div class="work-pills">
-              <span class="wpill">Training</span>
-              <span class="wpill">Applied Dev</span>
+              <span class="wpill">Front End</span>
+              <span class="wpill">HTML/CSS</span>
+              <span class="wpill">JavaScript</span>
             </div>
           </div>
         </article>
@@ -219,7 +279,7 @@ module = SystemModule("Core", "Active")</code></pre>
                 <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
                 <span class="term-title">mit_finger_exercises.py</span>
               </div>
-              <pre class="term-body"><code># MIT 6.0001 Computer Science
+              <pre class="term-body"><code># MIT 6.0001: Bisection Search Root
 def bisection_root(x, epsilon=0.01):
     low, high = 0.0, max(1.0, x)
     ans = (high + low) / 2.0
@@ -244,18 +304,18 @@ def bisection_root(x, epsilon=0.01):
             <div class="code-terminal-preview">
               <div class="term-header">
                 <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
-                <span class="term-title">programming_in_c.c</span>
+                <span class="term-title">array_traversal.c</span>
               </div>
               <pre class="term-body"><code>#include &lt;stdio.h&gt;
 
 int main(void) {
-    int arr[] = {12, 45, 78, 23, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int max = arr[0];
-    for (int i = 1; i < n; i++) {
-        if (arr[i] > max) max = arr[i];
+    int dataset[] = {12, 45, 78, 23, 90};
+    int len = sizeof(dataset) / sizeof(dataset[0]);
+    int max = dataset[0];
+    for (int i = 1; i < len; i++) {
+        if (dataset[i] > max) max = dataset[i];
     }
-    printf("Max: %d\n", max);
+    printf("Max value: %d\n", max);
     return 0;
 }</code></pre>
             </div>
@@ -264,7 +324,7 @@ int main(void) {
             <span class="work-name">Programming in C</span>
             <div class="work-pills">
               <span class="wpill">C Syntax</span>
-              <span class="wpill">Memory & Arrays</span>
+              <span class="wpill">Arrays & Loops</span>
             </div>
           </div>
         </article>
@@ -275,10 +335,10 @@ int main(void) {
 
   <footer class="footer-wrapper">
     <div class="footer-core">
-      <span class="footer-prompt-small">Direct WhatsApp Contact</span>
+      <span class="footer-prompt-small">Direct Contact & Inquiry</span>
       <a href="https://wa.me/923367648245" class="footer-callout">0336 7648245</a>
       <div class="footer-meta">
-        <p>© 2026 Muheeb Rehman. Engineered cleanly.</p>
+        <p>© 2026 Muheeb Rehman. All rights reserved.</p>
         <div class="footer-status-pill">
           <span class="pulse-indicator"></span> Active Repository Index
         </div>

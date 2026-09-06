@@ -1,8 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Sidebar Interaction Logic
+  const navTrigger = document.getElementById('navTrigger');
+  const drawerClose = document.getElementById('drawerClose');
+  const sidebarDrawer = document.getElementById('sidebarDrawer');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  const openSidebar = () => {
+    sidebarDrawer.classList.add('active');
+    sidebarOverlay.classList.add('active');
+    sidebarDrawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeSidebar = () => {
+    sidebarDrawer.classList.remove('active');
+    sidebarOverlay.classList.remove('active');
+    sidebarDrawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  if (navTrigger) navTrigger.addEventListener('click', openSidebar);
+  if (drawerClose) drawerClose.addEventListener('click', closeSidebar);
+  if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+  // Close sidebar on clicking internal anchor links
+  document.querySelectorAll('.drawer-nav-link').forEach((link) => {
+    link.addEventListener('click', closeSidebar);
+  });
+
+  // Ambient Aura reactive follow
   const ambientGlow = document.getElementById('ambientGlow');
   const heroStage = document.querySelector('.hero-stage');
 
-  // Interactive mouse follow on ambient lime glow
   if (window.matchMedia('(pointer: fine)').matches && ambientGlow && heroStage) {
     let targetX = 0, targetY = 0;
     let currentX = 0, currentY = 0;
@@ -23,9 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     animateAura();
   }
 
-  // Smooth appearance reveal
+  // Smooth Intersection Observer for entry animations
   const elements = document.querySelectorAll('.p-card, .work-tile, .deck-item, .trait-tag');
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
